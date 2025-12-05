@@ -31,11 +31,11 @@ public class Wordle {
 		
         for (int i = 0; i< WORD_LENGTH; i++) {
             char guessChar = guess.charAt(i);
-            char seceretChar = secret.charAt(i);
+            char secretChar = secret.charAt(i);
 
-            if (guessChar == seceretChar) {
+            if (guessChar == secretChar) {
                 resultRow[i] = 'G';
-            }   else if (containsChar(secret, seceretChar)) {
+            }   else if (containsChar(secret, secretChar)) { 
                 resultRow[i] = 'Y';
             }   else    {
                 resultRow[i] = '_';
@@ -113,12 +113,15 @@ public class Wordle {
 
                 try { 
                 guess = inp.readLine();
+                if (guess != null) {
+                guess = guess.toUpperCase();
+                }
                 } catch (NoSuchElementException e) {
 
                     break;
                 }
                 if (guess == null || guess.length() != WORD_LENGTH) {
-                    System.out.println("Invalid word. Please try asgain.");
+                    System.out.println("Invalid word. Please try again.");
                 } else {
                     if (guess.matches("^[A-Z]*$")){
                         valid = true;
@@ -140,6 +143,7 @@ public class Wordle {
                 if (isAllGreen(results[attempt])) {
                     System.out.println("Congratulations! You guesses the word in " + (attempt + 1) + " attempts.");
                     won=true;
+                    break;
                 }
                 attempt++;
         }
@@ -154,7 +158,7 @@ public class Wordle {
 
             if (!won) {
             System.err.println("Sorry, you did not guess the word.");
-            System.out.println("The seceret word was: " + secret);
+            System.out.println("The secret word was: " + secret);
 
         }
 
