@@ -35,7 +35,7 @@ public class Wordle {
 
             if (guessChar == secretChar) {
                 resultRow[i] = 'G';
-            }   else if (containsChar(secret, secretChar)) { 
+            }   else if (containsChar(secret, guessChar)) { 
                 resultRow[i] = 'Y';
             }   else    {
                 resultRow[i] = '_';
