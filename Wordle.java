@@ -147,15 +147,6 @@ public class Wordle {
                 }
                 attempt++;
         }
-
-
-            // Check win
-            if (isAllGreen(results[attempt])) {
-                System.out.println("Congratulations! You guessed the word in " + (attempt + 1) + " attempts.");
-                won = true;
-            }
-            attempt++;
-
             if (!won) {
             System.err.println("Sorry, you did not guess the word.");
             System.out.println("The secret word was: " + secret);
