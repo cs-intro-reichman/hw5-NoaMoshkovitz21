@@ -56,7 +56,7 @@ public class Wordle {
 		for (int col = 0; col < WORD_LENGTH; col++) {
             guesses[row][col] = guess.charAt(col);
         }
-        System.out.println();
+        
     }
 
     // Prints the game board up to currentRow (inclusive).
